@@ -1,0 +1,53 @@
+<html lang="en">
+    <head>
+        <title> Login and Registration </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'quote_app/css/index.css' %}">
+    </head>
+    <body>
+        <h1 id="welcome"> WELCOME! </h1>
+        <div id="wrapper">
+            <div id="registration-container">
+                <form action ='/registration' method = 'POST'>
+                        {% csrf_token %}
+                    <h1> Registration </h1>
+                    <div id = "form-name">
+                        <label for = "first_name"> First Name: </label>
+                        <input type = "text" name = "first_name">
+                        <label for = "last_name"> Last Name: </label>
+                        <input type ="text" name = "last_name">
+                    </div>
+                    <div id = "form-email">
+                        <label for = "email"> Email: </label>
+                        <input type = "text" name = "email">
+                    </div>
+                    <label for = "password"> Password: </label> 
+                    <input type = "password" name = "password">
+                    <label for = "passwordcf"> Confirm password: </label>
+                    <input type = "password" name = "passwordcf">
+                    <label for="birthday"> Date of Birth: </label>
+                    <input type="date" name="birthday">
+                    <button> Register </button>
+                </form>
+                {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li class="error_messages"> {{ message }} </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div id="login-container">
+                <form action='/login' method = 'POST'>
+                    {% csrf_token %}
+                    <h1> Login </h1>
+                    <label for = "email"> Email: </label>
+                    <input type = "text" name = "email">
+                    <label for = "password"> Password: </label>
+                    <input type = "password" name = "password">
+                    <button> Login </button> 
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

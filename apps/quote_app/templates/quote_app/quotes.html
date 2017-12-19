@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Quotes </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quote_app/css/quotes.css'%}">
+</head>
+<body>
+    <h1 id="welcome"> Welcome {{ first_name }} {{ last_name }} </h1> 
+    <p id="logout"> <a href="/logout"> Logout </a></p>
+    <div id="quote_container">
+        <h1> Quotable Quotes </h1>
+        {% for quote in quotes %}
+            <p> {{ quote.author }}: {{ quote.quote }} </p>
+            <p> Posted by: <a href="/users/{{ quote.user.id }}"> {{ quote.user.first_name }} </a> </p>
+            <form action='/quotes/add_favorite/{{ quote.id }}' method ='POST'>
+                {% csrf_token %}
+                <button> Add to My List </button>
+            </form>
+        {% endfor %}
+    </div>
+    <div id="favorite_container">
+        <h1> Your Favorites </h1>
+        {% for favorite in favorites %}
+            <p> {{ favorite.author }}: {{ favorite.quote}} </p>
+            <p> Posted by: <a href="/users/{{ favorite.user.id }}"> {{ favorite.user.first_name }} </a> </p>
+            <form action='/quotes/remove_favorite/{{ favorite.id }}' method='POST'>
+                {% csrf_token %}
+                <button>Remove From My List </button> 
+            </form>
+        {% endfor %}
+    </div>
+    <div id="quotesubmit_container">
+        <form action='/add_quote/{{ request.session.user_id }}' method= 'POST'>
+            {% csrf_token %}
+            <div id="author">
+                <label for="author"> Quoted By: </label>
+                <input type="text" name="author">
+            </div>
+            <div id="quote">
+                <label for="quote"> Message: </label>
+                <textarea name="quote" rows="10" cols="20"></textarea>
+                <button id="new_quotebutton"> Submit </button> 
+            </div>
+        </form>
+    </div>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li class="error_messages"> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

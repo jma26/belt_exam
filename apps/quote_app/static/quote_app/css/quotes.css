@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#welcome {
+    display: inline-block;
+}
+
+#logout {
+    display: inline-block;
+    margin-left: 900px;
+    font-size: 25px;
+}
+
+#quote_container, #favorite_container {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    width: 400px;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+#quote_container {
+    margin-left: 20px;
+    margin-right: 400px;
+}
+
+#quotesubmit_container {
+    border: 2px solid black;
+    display: inline-block;
+    margin-left: 925px;
+    padding: 5px;
+}
+
+input {
+    margin-left: 20px;
+}
+
+textarea {
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+#new_quotebutton {
+    display: block;
+    margin-left: 215px;
+    margin-top: 10px;
+}
+
+.error_messages {
+    margin-left: 900px;
+    margin-top: 10px;
+}

@@ -1,0 +1,45 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#registration-container, #login-container {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 50px;
+    text-align: left;
+} 
+
+#registration-container {
+    margin-right: 50px;
+}
+
+input {
+    display: block;
+}
+
+#welcome {
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: yellow;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+.error_messages {
+    color: red;
+    margin-top: 5px;
+}
+
+
+
+
+
